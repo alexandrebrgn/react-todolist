@@ -87,12 +87,13 @@
 
 @font-face {
     font-family: 'SFPRO';
-    src: url('/public/SF-PRO/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+    src: url('/fonts/SF-PRO/SFPRODISPLAYMEDIUM.OTF') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 * {
+    /*box-shadow: inset 0 0 0 1px red; !*uncomment, helps to see ui disposition*!*/
     font-family: SFPRO, sans-serif;
 }
 
