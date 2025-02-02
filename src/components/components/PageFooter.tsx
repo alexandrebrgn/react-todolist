@@ -7,7 +7,7 @@ const PageFooter = () => (
       <p className="italic">Made by Alexandre Bourguignon</p>
     </div>
     <div className="absolute right-0 bottom-0 p-7 flex items-center justify-center">
-      © {new Date().getFullYear()} All Rights Reserved
+      © {new Date().getFullYear()} No Rights Reserved
     </div>
   </>
 )

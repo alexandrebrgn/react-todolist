@@ -10,6 +10,7 @@
       "styles/*": ["./src/styles/*"]
     },
     "allowJs": true,
+    "allowImportingTsExtensions": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,

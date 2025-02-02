@@ -6,21 +6,10 @@ import {format} from "date-fns";
 import {Calendar} from "@/components/ui/calendar.tsx";
 import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select.tsx";
 import Task, {Importance} from "@/types/to_do_list_types.ts";
-import {BookmarkPlus, CircleSolid} from "@mynaui/icons-react";
+import {BookmarkPlus} from "@mynaui/icons-react";
 import useToDoListTask from "@/hooks/to_do_list_hook.ts";
 import {useState} from "react";
-
-function handleImportanceView(imp: string) {
-  if (imp == Importance.Banal) {
-    return <CircleSolid className="!size-3 text-green-500"/>
-  }
-  if (imp == Importance.Important) {
-    return <CircleSolid className="!size-3 text-orange-500"/>
-  }
-  if (imp == Importance.Urgent) {
-    return <CircleSolid className="! size-3 text-red-500"/>
-  }
-}
+import IconForImportance from "@/helpers/IconForImportance.tsx";
 
 export default function TaskStore() {
   const [newTask, setNewTask] = useState<Task>({
@@ -97,7 +86,7 @@ export default function TaskStore() {
             <SelectGroup>
               {(Object.keys(Importance) as Array<keyof typeof Importance>).map((imp) => (
                 <SelectItem value={imp} key={imp}>
-                  <div className="flex align-middle items-center gap-2">{handleImportanceView(imp)}{imp}</div>
+                  <div className="flex align-middle items-center gap-2">{IconForImportance(imp)}{imp}</div>
                 </SelectItem>
               ))}
             </SelectGroup>

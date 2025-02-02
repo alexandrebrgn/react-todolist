@@ -13,6 +13,10 @@ export default function useToDoListTask() {
     updateTasksFromCache(tasks)
   }, [tasks])
 
+  function getTaskById(id: string) {
+    return tasks.find(task => task.id === id)
+  }
+
   function addTask(newTask: Task){
     setTasks([...tasks, newTask])
   }
@@ -21,14 +25,14 @@ export default function useToDoListTask() {
     setTasks(tasks.filter((task) => task.id != id))
   }
 
-  const updateTaskText = (id: string, newText: string) => {
-    const newTasks: Task[] = tasks.map((task) => {
-      if (task.id === id) {
-        task.text = newText
-      }
-      return task
-    })
-    setTasks(newTasks)
+  const updateTask = (id: string, updatedTask: Partial<Task>) => {
+    setTasks(prevTasks =>
+      prevTasks.map(task =>
+        task.id === id
+          ? { ...task, ...updatedTask}
+          :task
+      )
+    )
   }
 
   const checkTask = (id: string) => {
@@ -60,7 +64,7 @@ export default function useToDoListTask() {
     showTodayTasks,
     tasks,
     addTask,
-    updateTaskText,
+    updateTask,
     deleteTask,
     handleFilteredTasks,
     checkTask,
