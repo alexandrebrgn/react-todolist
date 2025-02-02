@@ -13,9 +13,9 @@ export default function useToDoListTask() {
     updateTasksFromCache(tasks)
   }, [tasks])
 
-  function getTaskById(id: string) {
-    return tasks.find(task => task.id === id)
-  }
+  // function getTaskById(id: string) {
+  //   return tasks.find(task => task.id === id)
+  // }
 
   function addTask(newTask: Task){
     setTasks([...tasks, newTask])
@@ -56,8 +56,6 @@ export default function useToDoListTask() {
     }
     console.log(filteredTasks)
   }
-
-
 
   return {
     filteredTasks,

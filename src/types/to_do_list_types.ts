@@ -2,11 +2,11 @@ type Task = {
   id: string,
   text: string,
   date: Date | undefined,
+  priority: Priority | undefined,
   isDone: boolean,
-  importance: Importance | undefined
 }
 
-export enum Importance{
+export enum Priority{
   Urgent = "Urgent",
   Important = "Important",
   Banal = "Banal",

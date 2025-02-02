@@ -3,7 +3,7 @@ import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input'
 import {format} from 'date-fns';
 import {cn} from "@/utils";
-import Task, {Importance} from "@/types/to_do_list_types.ts";
+import Task, {Priority} from "@/types/to_do_list_types.ts";
 import {
   CalendarMinus,
   CheckSquare,
@@ -33,7 +33,7 @@ export default function TaskTable() {
     const formData = new FormData(e.currentTarget)
 
     const task: Partial<Task> = {
-      importance: formData.get("importance") as Importance,
+      priority: formData.get("importance") as Priority,
       date: updateDate,
       text: formData.get("text") as string,
     }
@@ -83,9 +83,9 @@ export default function TaskTable() {
                     <TableCell className="">
                       {
                         task.isDone ? <CircleSolid className="!size-4 text-gray-200 m-auto"/>
-                          : task.importance === Importance.Banal ?
+                          : task.priority === Priority.Banal ?
                             <CircleSolid className=" !size-4 text-green-500 m-auto"/>
-                            : task.importance === Importance.Important ?
+                            : task.priority === Priority.Important ?
                               <CircleSolid className=" !size-4 text-orange-500 m-auto"/>
                               : <CircleSolid className=" !size-4 text-red-500 m-auto"/>
                       }
@@ -150,13 +150,13 @@ export default function TaskTable() {
                           </Label>
                         </div>
                         <Select name="importance"
-                                defaultValue={task.importance}>
+                                defaultValue={task.priority}>
                           <SelectTrigger className="col-span-2 h-8 text-left">
                             <SelectValue placeholder="Priorité"/>
                           </SelectTrigger>
                           <SelectContent>
                             <SelectGroup>
-                              {(Object.keys(Importance) as Array<keyof typeof Importance>).map((imp) => (
+                              {(Object.keys(Priority) as Array<keyof typeof Priority>).map((imp) => (
                                 <SelectItem value={imp} key={imp}>
                                   <div
                                     className="flex align-middle items-center gap-2">{IconForImportance(imp)}{imp}</div>

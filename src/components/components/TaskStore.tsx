@@ -5,7 +5,7 @@ import {Button} from "@/components/ui/button.tsx";
 import {format} from "date-fns";
 import {Calendar} from "@/components/ui/calendar.tsx";
 import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select.tsx";
-import Task, {Importance} from "@/types/to_do_list_types.ts";
+import Task, {Priority} from "@/types/to_do_list_types.ts";
 import {BookmarkPlus} from "@mynaui/icons-react";
 import useToDoListTask from "@/hooks/to_do_list_hook.ts";
 import {useState} from "react";
@@ -15,7 +15,7 @@ export default function TaskStore() {
   const [newTask, setNewTask] = useState<Task>({
     id: '',
     text: '',
-    importance: undefined,
+    priority: undefined,
     isDone: false,
     date: undefined
   })
@@ -24,7 +24,7 @@ export default function TaskStore() {
 
   const handleNewTaskChange = (
     key: keyof Task,
-    value: string | Importance | Date | undefined
+    value: string | Priority | Date | undefined
   ) => {
     setNewTask((prevTask) => ({
       ...prevTask,
@@ -38,7 +38,7 @@ export default function TaskStore() {
     setNewTask({
       id: '',
       text: '',
-      importance: undefined,
+      priority: undefined,
       isDone: false,
       date: undefined
     })
@@ -78,13 +78,13 @@ export default function TaskStore() {
             />
           </PopoverContent>
         </Popover>
-        <Select onValueChange={(e) => handleNewTaskChange('importance', e)} defaultValue={newTask.importance}>
+        <Select onValueChange={(e) => handleNewTaskChange('priority', e)} defaultValue={newTask.priority}>
           <SelectTrigger className="!w-4/6">
             <SelectValue placeholder="Priorité"/>
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              {(Object.keys(Importance) as Array<keyof typeof Importance>).map((imp) => (
+              {(Object.keys(Priority) as Array<keyof typeof Priority>).map((imp) => (
                 <SelectItem value={imp} key={imp}>
                   <div className="flex align-middle items-center gap-2">{IconForImportance(imp)}{imp}</div>
                 </SelectItem>
