@@ -18,7 +18,7 @@ In which you can :
 
 
 ## 📦 Installation
-```bash
+```shell
     $ cd path/to/you/projects/rep
     $ git clone git@github.com:alexandrebrgn/react-todolist.git
     $ cd path/to/your/project
