@@ -1,7 +1,6 @@
 # 🗒️Ma To-Do List
 
 ## React + TypeScript + Vite
-___
 ![Screenshot de la page principale de l'application](public/assets/homepage-screenshot.png)
 
 __A little React-TypeScript-Vite-Shadcn/ui project that reproduce a to-do list behavior.__
@@ -13,14 +12,12 @@ In which you can :
 
 
 ## ✨ Special Features
-___
 
 - 💾 Tasks are saved in your navigator cache, so that you never lose your tasks unless you clear your navigator cache
 - 🌟 Developped with [shadcn/ui](https://ui.shadcn.com/) components and [MynaUI](https://mynaui.com/icons) to render a simple and modern UI
 
 
 ## 📦 Installation
-___
 ```bash
     $ cd path/to/you/projects/rep
     $ git clone git@github.com:alexandrebrgn/react-todolist.git
@@ -29,7 +26,6 @@ ___
 ```
 
 ## 🚀 Usage
-___
 
 ```bash
     $ pnpm run dev
@@ -37,13 +33,11 @@ ___
 
 
 ## 🔗 Deployed project Link
-___
 
 Thanks to Vercel, you can see this little project deployed online
 
 - [👀 See what it looks like](https://react-todolist-ywxu.vercel.app/)
 ## 📄 Project architecture
-___
 
 This project features a <strong><em>modular folder structure</em></strong> designed to enhance maintainability and testability. 
 Key components are logically separated
